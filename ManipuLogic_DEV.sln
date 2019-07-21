@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Application", "Application.pyproj", "{44F32446-B871-42CD-9199-02C2B99A4D8B}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "BaseClasses", "BaseClasses\BaseClasses.pyproj", "{EE1B3DA7-73FF-4498-9A7B-D01D188CF904}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "SententialLogic", "SententialLogic\SententialLogic.pyproj", "{38D8AE19-1494-4BDA-8B60-56973CCAE29C}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Predicate Logic", "PredicateLogic\Predicate Logic.pyproj", "{412577CE-8655-4134-B6EB-D2B8574F14CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44F32446-B871-42CD-9199-02C2B99A4D8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44F32446-B871-42CD-9199-02C2B99A4D8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE1B3DA7-73FF-4498-9A7B-D01D188CF904}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE1B3DA7-73FF-4498-9A7B-D01D188CF904}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38D8AE19-1494-4BDA-8B60-56973CCAE29C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38D8AE19-1494-4BDA-8B60-56973CCAE29C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{412577CE-8655-4134-B6EB-D2B8574F14CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{412577CE-8655-4134-B6EB-D2B8574F14CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {95760CBC-1AEB-4193-BEF2-B3AE48C27807}
+	EndGlobalSection
+EndGlobal

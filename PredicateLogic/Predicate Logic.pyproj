@@ -1,0 +1,80 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>412577ce-8655-4134-b6eb-d2b8574f14cc</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>__init__.py</StartupFile>
+    <SearchPath>..\..\ManipuLogic_DEV</SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>Predicate Logic</Name>
+    <RootNamespace>Predicate Logic</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="FirstOrderLogic\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SecondOrderLogic\Set.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SecondOrderLogic\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FirstOrderLogic\UniversalQuant.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FirstOrderLogic\ExistQuant.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Quantifier.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Variable.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SecondOrderLogic\SecondOrderProp.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FirstOrderLogic\FirstOrderProp.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Predicate.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SecondOrderLogic\Function.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Existent.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PredicatedProposition.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UnitTests.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FirstOrderLogic\" />
+    <Folder Include="SecondOrderLogic\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>
