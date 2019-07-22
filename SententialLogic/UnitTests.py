@@ -1,3 +1,3 @@
 def runTests(mode : int) -> int:
-    pass
+    return 0
 

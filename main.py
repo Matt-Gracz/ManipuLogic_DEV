@@ -1,6 +1,4 @@
-from typing import Dict
-
-_running = False
+_running : bool = False
 
 def RunManipuLogic(doRunUnitTests : bool = False) -> int:
 
@@ -26,10 +24,15 @@ def runUnitTests():
     from SententialLogic import UnitTests as SententialUnitTests
     from PredicateLogic import UnitTests as PredicateUnitTests
     modules = [BaseUnitTests, SententialUnitTests, PredicateUnitTests]
-    results = Dict
+    results = {}
+    mode : int = 0 #run in silent mode
     try:
         for module in modules:
-            results[module] = module.runTests()
+            results[str(module)] = module.runTests(mode)
+        keys = results.keys()
+        for key in keys:
+            printableKey = key[key.find("module ") : key.find(" from")]
+            print("Result for {} is: {}".format(printableKey, str(results[key])))
     except Exception as e:
         print("Error encountered while running unit tests")
         print("Internal python exception text: " + str(e))
