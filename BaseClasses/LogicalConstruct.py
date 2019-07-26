@@ -4,5 +4,8 @@ class LogicalConstruct(object):
         pass
     def print() -> None:
         pass
+    
+    def runTest():
+        return True
 
 

@@ -1,3 +1,13 @@
+#----------------------------------------------------------------------
+#----------------------------------------------------------------------
+# Name:        Application.main
+# Purpose:     Main programmtic interface for ManipuLogic.
+#
+# Author:      Matt Gracz
+#
+# Created:     JUL-2019
+#----------------------------------------------------------------------
+
 _running : bool = False
 
 def RunManipuLogic(doRunUnitTests : bool = False) -> int:
@@ -19,16 +29,18 @@ def RunManipuLogic(doRunUnitTests : bool = False) -> int:
     print("Exiting ManipuLogic")
     return 0;
 
-def runUnitTests():
+def runUnitTests() -> None:
+    """ Runs all unit test suites in the codebase
+    """
     from BaseClasses import UnitTests as BaseUnitTests
     from SententialLogic import UnitTests as SententialUnitTests
     from PredicateLogic import UnitTests as PredicateUnitTests
     modules = [BaseUnitTests, SententialUnitTests, PredicateUnitTests]
     results = {}
-    mode : int = 0 #run in silent mode
+    mode : int = 0 #run in non-verbose mode
     try:
         for module in modules:
-            results[str(module)] = module.runTests(mode)
+            results[str(module)] = module.runAllTests(mode)
         keys = results.keys()
         for key in keys:
             printableKey = key[key.find("module ") : key.find(" from")]
