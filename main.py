@@ -32,6 +32,7 @@ def RunManipuLogic(doRunUnitTests : bool = False) -> int:
 def runUnitTests() -> None:
     """ Runs all unit test suites in the codebase
     """
+    import traceback
     from BaseClasses import UnitTests as BaseUnitTests
     from SententialLogic import UnitTests as SententialUnitTests
     from PredicateLogic import UnitTests as PredicateUnitTests
@@ -47,4 +48,5 @@ def runUnitTests() -> None:
             print("Result for {} is: {}".format(printableKey, str(results[key])))
     except Exception as e:
         print("Error encountered while running unit tests")
-        print("Internal python exception text: " + str(e))
+        print("Internal python exception text: ")
+        print(traceback.format_exc())

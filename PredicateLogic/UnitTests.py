@@ -9,14 +9,12 @@ from PredicateLogic.FirstOrderLogic.FirstOrderProp import FirstOrderProp
 from PredicateLogic.FirstOrderLogic.UniversalQuant import UniversalQuant
 from PredicateLogic.SecondOrderLogic.Function import Function
 from PredicateLogic.SecondOrderLogic.SecondOrderProp import SecondOrderProp
-from PredicateLogic.SecondOrderLogic.Set import Set
+from PredicateLogic.SecondOrderLogic.LogicSet import LogicSet
 
 def runAllTests(mode : int) -> bool:
     testSuite : UnitTestSuite = UnitTestSuite()
-
-    modulesToTest = [Existent, Predicate, PredicatedProposition, Quantifier, Variable, ExistQuant, \
-        FirstOrderProp, UniversalQuant, Function, SecondOrderProp, Set]
-    for module in modulesToTest:
-        testSuite.addUnitTest(UnitTest(module()))
-
+    modules = [Existent, Predicate, PredicatedProposition, Quantifier, Variable, ExistQuant, \
+        FirstOrderProp, UniversalQuant, Function, SecondOrderProp, LogicSet]
+    unitTests = [UnitTest(module) for module in modules]
+    testSuite.setTestList(unitTests)
     return testSuite.runTestSuite()

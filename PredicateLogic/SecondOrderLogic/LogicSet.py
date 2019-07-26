@@ -1,4 +1,3 @@
-class Set(object):
+class LogicSet(object):
     """description of class"""
-
 

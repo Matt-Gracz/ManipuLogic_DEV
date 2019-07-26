@@ -23,7 +23,7 @@
     <Compile Include="FirstOrderLogic\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="SecondOrderLogic\Set.py">
+    <Compile Include="SecondOrderLogic\LogicSet.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="SecondOrderLogic\__init__.py">

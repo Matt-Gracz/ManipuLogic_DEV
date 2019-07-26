@@ -11,19 +11,13 @@ class UnitTest():
             pass
    
     def runTest(self) -> int:
-        success = 1 # >0 = fail, 0 = success.  Assume failure until proven otherwise.
         try:
-            success = self.objectToTest.runTest()
+            return self.objectToTest.runTest()
         except:
-            success = 1
-        return success
+            return 1 #>0 = failure
 
-    def setObjectToTest(self, objectToTest : object) -> bool:
-        try:
-            self.objectToTest = objectToTest
-            return True
-        except:
-            return False
+    def setObjectToTest(self, objectToTest : object) -> None:
+        self.objectToTest = objectToTest
 
 class UnitTestSuite():
     """A linear ordering of unit tests for a given function or class"""
@@ -37,26 +31,15 @@ class UnitTestSuite():
             pass
 
     def runTestSuite(self) -> bool:
-        try:
-            return not all([bool(unitTest.runTest()) for unitTest in self.unitTestList])
-        except:
-            return False
+        return not all([bool(unitTest.runTest()) for unitTest in self.unitTestList])
 
-    def setTestList(self, unitTestList : List[UnitTest]) -> bool:
-        try:
-            self.unitTestList = unitTestList
-            return True
-        except:
-            return False
-
-    def addUnitTest(self, test : UnitTest) -> bool:
+    def setTestList(self, unitTestList : List[UnitTest]) -> None:
+        self.unitTestList = unitTestList
+            
+    def addUnitTest(self, test : UnitTest) -> None:
         if self.unitTestList is None:
             self.unitTestList = List[UnitTest]
-        try:
-            self.unitTestList.append(test)
-            return True
-        except:
-            return False
+        self.unitTestList.append(test)
         
 
 

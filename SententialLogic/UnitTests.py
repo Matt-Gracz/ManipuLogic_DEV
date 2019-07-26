@@ -4,9 +4,6 @@ from SententialLogic.SimpleProposition import SimpleProposition
 
 def runAllTests(mode : int) -> bool:
     testSuite : UnitTestSuite = UnitTestSuite()
-
-    modulesToTest = [SimpleProposition, ComplexProposition]
-    for module in modulesToTest:
-        testSuite.addUnitTest(UnitTest(module()))
-
+    modules = [SimpleProposition, ComplexProposition]
+    unitTests = [UnitTest(module) for module in modules]
     return testSuite.runTestSuite()

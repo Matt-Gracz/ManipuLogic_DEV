@@ -7,11 +7,9 @@ from BaseClasses.Law import Law
 
 def runAllTests(mode : int) -> bool:
     testSuite : UnitTestSuite = UnitTestSuite()
-
-    modulesToTest = [LogicalConstruct, LogicalContent, Proposition, Operator, Law]
-    for module in modulesToTest:
-        testSuite.addUnitTest(UnitTest(module()))
-
+    modules = [LogicalConstruct, LogicalContent, Proposition, Operator, Law]
+    unitTests = [UnitTest(module) for module in modules]
+    testSuite.setTestList(unitTests)
     return testSuite.runTestSuite()
 
 

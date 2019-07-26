@@ -6,6 +6,6 @@ class LogicalConstruct(object):
         pass
     
     def runTest():
-        return True
+        return False
 
 
