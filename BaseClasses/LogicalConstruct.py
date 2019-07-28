@@ -5,7 +5,8 @@ class LogicalConstruct(object):
     def print() -> None:
         pass
     
-    def runTest():
+    def runTest(resultsAddFunction):
+        #call resultsAddFunction(<functionName>, <PASS_FAIL>, <RESULTS>)
         return False
 
 

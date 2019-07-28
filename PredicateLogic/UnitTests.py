@@ -1,4 +1,4 @@
-from UnitTesting import UnitTestSuite, UnitTest
+from UnitTesting import UnitTesting
 from PredicateLogic.Existent import Existent
 from PredicateLogic.Predicate import Predicate
 from PredicateLogic.PredicatedProposition import PredicatedProposition 
@@ -12,9 +12,5 @@ from PredicateLogic.SecondOrderLogic.SecondOrderProp import SecondOrderProp
 from PredicateLogic.SecondOrderLogic.LogicSet import LogicSet
 
 def runAllTests(mode : int) -> bool:
-    testSuite : UnitTestSuite = UnitTestSuite()
-    modules = [Existent, Predicate, PredicatedProposition, Quantifier, Variable, ExistQuant, \
-        FirstOrderProp, UniversalQuant, Function, SecondOrderProp, LogicSet]
-    unitTests = [UnitTest(module) for module in modules]
-    testSuite.setTestList(unitTests)
-    return testSuite.runTestSuite()
+    return UnitTesting().runTestSuite([Existent, Predicate, PredicatedProposition, Quantifier, Variable, ExistQuant, \
+        FirstOrderProp, UniversalQuant, Function, SecondOrderProp, LogicSet])
