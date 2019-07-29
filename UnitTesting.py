@@ -14,9 +14,9 @@ class UnitTest():
     def runTest(self) -> int:
         returnCode = 1
         try:
-            UnitTesting().results.setObject(self.objectToTest)
-            returnCode = self.objectToTest.runTest(UnitTesting().results.addFunction)
-            print(UnitTesting().results)
+            UnitTesting().Results().setObject(self.objectToTest)
+            returnCode = self.objectToTest.runTest(UnitTesting().Results().addFunction)
+            print(UnitTesting().Results())
         except:
             pass
         return returnCode # >0 = failure
@@ -31,15 +31,16 @@ class UnitTestSuite():
     """A linear ordering of unit tests for a given function or class"""
     unitTestList : List = List[UnitTest]
 
-    results = None
-
     def __init__(self, *args, **kwargs):
         try:
             self.unitTestList = args
         except:
             self.unitTestList = None
             pass
-        results = Results()
+        
+
+    def Results():
+        return TestResults()
 
     def runTestSuite(self, moduleList = None) -> bool:
         if(moduleList is not None):
@@ -89,11 +90,11 @@ class Results:
             print("    Function {} {} with notes:)".format(func, passFail))
             print("        " + resultsText)
 
-    def setObject(self, object : Object):
+    def setObject(self, object : object):
         self.objectName = str(object)
         self.functionMapping.clear()
 
-    def addFunction(self, fn : str, passFail : ResultType, results : str):
+    def addFunction(self, fn : str, passFail : PassFailType, results : str):
         if fn not in self.functionMapping.keys():
             self.functionMapping[fn] = []
         self.functionMapping[fn].append([passFail, results])

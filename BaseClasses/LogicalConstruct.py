@@ -1,3 +1,5 @@
+from UnitTesting import UnitTesting
+
 class LogicalConstruct(object):
     """description of class"""
     def toString() -> str:
@@ -6,7 +8,8 @@ class LogicalConstruct(object):
         pass
     
     def runTest(resultsAddFunction):
-        #call resultsAddFunction(<functionName>, <PASS_FAIL>, <RESULTS>)
+        
+        resultsAddFunction("Test text")
         return False
 
 
