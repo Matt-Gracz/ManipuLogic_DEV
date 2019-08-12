@@ -1,4 +1,4 @@
-from UnitTesting import UnitTesting
+from UnitTesting import PassFailType, UnitTesting
 from io import StringIO
 import sys
 
@@ -12,21 +12,32 @@ class LogicalConstruct(object):
         """prints to stdout the return value of self.toString()"""
         pass
     
-    def runTest(resultsAddFunction) -> bool:
-        resultsAddFunction("print(): ")
+    def runTest(resultsAddFunction) -> None:
         didPass : bool = False
+        error : bool = False
         old_stdout : object = sys.stdout
         #we'll use try/except to ensure stdout gets re-set no matter what before we exit this
         #function
+        expectedStr : str = ""
+        testStr : str = "DIFFERENT"
         try:
-            expectedStr : str = self.toString()
+            expectedStr = self.toString()
             sys.stdout = redirected_stdout = StringIO()
             self.print()
-            testStr : str = redirected_stdout.getValue().strip()
+            testStr = redirected_stdout.getValue().strip()
             didPass = didPass and (testStr == expectedStr)
         except Exception as e:
-            pass
+            error = True
         sys.stdout = old_stdout
-        return didPass
+        
+        pft : PassFailType
+        if(error):
+            pft = PassFailType.ERROR
+        elif(didPass):
+            pft = PassFailType.PASS
+        else:
+            pft = PassFailType.DEFECT
+
+        resultsAddFunction("print()", pft, "expected string: {} printed string: {}".format(expectedStr, testStr))
 
 
