@@ -1,6 +1,7 @@
 from BaseClasses.LogicalConstruct import LogicalConstruct
 from BaseClasses.LogicalContent import LogicalContent
 from BaseClasses.Operator import Operator
+from UnitTesting import UnitTesting, PassFailType
 from enum import IntEnum
 
 class PropType(IntEnum):
@@ -15,7 +16,44 @@ class Proposition(LogicalConstruct):
     propType : PropType
     content : LogicalContent
 
-    def applyOperator(op : Operator) -> None:
-        pass
+    def __init__(self, *args, **kwargs):
+        argc = len(args)
+        if argc:
+            try:
+                self.content = args[0].content
+            except Exception as e:
+                pass
+        return super(self)
+
+    def applyOperator(self, op : Operator, prop : Proposition = None) -> Proposition:
+        """applies (op, prop) to self to create a new proposition in place.
+           E.g., p1.applyOperator(<AND>, p2) would create a new instantiation of Proposition, p3,
+           that would be the classical-logical conjunction of p1 and p2.  Similarly for xor, etc...
+           
+           Note: For unary operators prop = None is the sentinel value signaling to ignore the 
+           "prop" parameter.
+        """
+        newProp : Proposition = None
+        newProp = op.applyAllLaws(self) #apply all relevant unary laws
+        applyBinaryLaws : bool = (prop is not None)
+        if applyBinaryLaws:
+            tempProp : Proposition = op.ApplyAllLaws(prop) #apply any additional unary laws
+            newProp = op.applyAllLaws(newProp, tempProp) #finally apply all binary laws
+        return newProp
+
+    def runTest(resultsAddFunction) -> None:
+        didPass : bool = False
+        error : bool = False
+        
+        pft : PassFailType
+        if(error):
+            pft = PassFailType.ERROR
+        elif(didPass):
+            pft = PassFailType.PASS
+        else:
+            pft = PassFailType.DEFECT
+       
+
+        resultsAddFunction("applyOperator", pft, "text")
 
 
