@@ -31,6 +31,7 @@ class LogicalContent(LogicalConstruct):
         else:
             pft = PassFailType.DEFECT
 
-        resultsAddFunction("print()", pft, "expected string: {} printed string: {}".format(expectedStr, testStr))
+        #NOTE: implement when any interesting functions need testing.
+        #resultsAddFunction("<fn>", pft, "text")
 
 
