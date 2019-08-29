@@ -2,6 +2,7 @@ from typing import Dict, List
 from enum import IntEnum
 from BaseClasses.LogicalConstruct import LogicalConstruct
 from BaseClasses.Law import Law
+#from BaseClasses.Proposition import Proposition
 
 class OpType(IntEnum):
     DISJUNCT = 1
@@ -16,5 +17,6 @@ class Operator(LogicalConstruct):
     laws : List[Law]
     lawApplicationRules : Dict
     
-    def applyLaw(law : Law) -> None:
+    def applyLaw(self, law : Law, prop: object) -> None:
+
         pass

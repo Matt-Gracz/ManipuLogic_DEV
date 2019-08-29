@@ -25,7 +25,7 @@ class Proposition(LogicalConstruct):
                 pass
         return super(self)
 
-    def applyOperator(self, op : Operator, prop : Proposition = None) -> Proposition:
+    def applyOperator(self, op : Operator, prop : object = None) -> object:
         """applies (op, prop) to self to create a new proposition in place.
            E.g., p1.applyOperator(<AND>, p2) would create a new instantiation of Proposition, p3,
            that would be the classical-logical conjunction of p1 and p2.  Similarly for xor, etc...
