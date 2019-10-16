@@ -71,7 +71,7 @@ def UnitTesting(*args, **kw):
 class PassFailType(Enum):
     PASS = "passed"
     DEFECT = "failed due to a functional test case failure"
-    ERROR = "ailed due to an internal Python/coding error"
+    ERROR = "failed due to an internal Python/coding error"
     WARNING = "functionally passed, but warned about e.g., a possible NFR issue"
 
 
@@ -79,7 +79,7 @@ class Results:
     """A singletone/one-off object that manages the results of ManipuLogic's unit-testing.
     """
     objectName : str
-    #funcMapping = {FUNC_NAMWE-->(PASS|FAIL, RESULTS_TEXT)}
+    #functionMapping = {FUNC_NAME-->(PASS|FAIL, RESULTS_TEXT)}
     functionMapping : Dict[str, List[str]]
 
     def __str__(self):
@@ -97,7 +97,7 @@ class Results:
     def addFunction(self, fn : str, passFail : PassFailType, results : str):
         if fn not in self.functionMapping.keys():
             self.functionMapping[fn] = []
-        self.functionMapping[fn].append([passFail, results])
+        self.functionMapping[fn].append([str(passFail), results])
 
 
 #Factory function to be used to enforce singleton/one-off object allocation
