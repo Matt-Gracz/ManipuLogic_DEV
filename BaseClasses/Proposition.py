@@ -41,7 +41,7 @@ class Proposition(LogicalConstruct):
             newProp = op.applyAllLaws(newProp, tempProp) #finally apply all binary laws
         return newProp
 
-    def runTest(resultsAddFunction) -> None:
+    def runTest(self, resultsAddFunction) -> None:
         didPass : bool = False
         error : bool = False
         

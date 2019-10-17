@@ -12,7 +12,7 @@ class LogicalConstruct(object):
         """prints to stdout the return value of self.toString()"""
         pass
     
-    def runTest(resultsAddFunction) -> None:
+    def runTest(self, resultsAddFunction) -> None:
         didPass : bool = False
         error : bool = False
         old_stdout : object = sys.stdout

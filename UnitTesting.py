@@ -13,12 +13,11 @@ class UnitTest():
    
     def runTest(self) -> int:
         returnCode = 1
-        try:
-            UnitTesting().Results().setObject(self.objectToTest)
-            returnCode = self.objectToTest.runTest(UnitTesting().Results().addFunction)
-            print(UnitTesting().Results())
-        except:
-            pass
+        
+        UnitTesting().Results().setObject(self.objectToTest)
+        returnCode = self.objectToTest.runTest(UnitTesting().Results().addFunction)
+        print(UnitTesting().Results())
+        
         return returnCode # >0 = failure
 
     def setObjectToTest(self, objectToTest : object) -> None:
@@ -38,8 +37,7 @@ class UnitTestSuite():
             self.unitTestList = None
             pass
         
-
-    def Results():
+    def Results(self):
         return TestResults()
 
     def runTestSuite(self, moduleList = None) -> bool:
@@ -47,7 +45,7 @@ class UnitTestSuite():
             self.setTestModules(moduleList)
             return self.runTestSuite(None)
         else:
-            return not all([bool(unitTest.runTest()) for unitTest in self.unitTestList]) 
+            return not all([bool(unitTest.runTest()) for unitTest in self.unitTestList])
 
     def setTestList(self, unitTestList : List[UnitTest]) -> None:
         self.unitTestList = unitTestList
@@ -76,11 +74,14 @@ class PassFailType(Enum):
 
 
 class Results:
-    """A singletone/one-off object that manages the results of ManipuLogic's unit-testing.
+    """A singleton/one-off object that manages the results of ManipuLogic's unit-testing.
     """
     objectName : str
     #functionMapping = {FUNC_NAME-->(PASS|FAIL, RESULTS_TEXT)}
-    functionMapping : Dict[str, List[str]]
+    functionMapping : Dict[str, List[str]] = {}
+
+    #def __init__(self, *args, **kwargs):
+    #    self.functionMapping = {}
 
     def __str__(self):
         print("Object Under Test: " + self.objectName)
